@@ -17,7 +17,7 @@ public class SinglyLinkedListTest {
         l.add(2, 300);
         l.add(4, 500);
 
-        String expected = "SinglyLinkedList{size=0} 100 200 300 400 500";
+        String expected = "SinglyLinkedList{size=5} 100 200 300 400 500";
         String actual = l.toString();
         assertEquals(expected, actual);
     }
