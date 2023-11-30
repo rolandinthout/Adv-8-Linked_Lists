@@ -47,15 +47,15 @@ public class SinglyLinkedList {
      * @param index
      * @param value
      */
-    public void add( int index, int value ) {
+    public void add(int index, int value) {
         // Implement, create a new Node for this entry.
-        Node newNode = new Node( value );
+        Node newNode = new Node(value);
 
         // Don't forget to increment the size of the list
         size++;
 
         // The simple case is if we add a new head (index == 0)
-        if (index == 0 ) {
+        if (index == 0) {
             newNode.next = head;
             head = newNode;
             return;
@@ -64,7 +64,7 @@ public class SinglyLinkedList {
         // Otherwise, follow the next-pointer as many times as necessary to get to the node at requested index,
         // but stop one entry before that!
         Node current = head;
-        for ( int count=0; count < index - 1; count++ ) {
+        for (int count=0; count < index - 1; count++) {
             current = current.next;
         }
 
@@ -79,10 +79,10 @@ public class SinglyLinkedList {
      *
      * @param index
      */
-    public void remove( int index ) {
+    public void remove(int index) {
         // Implement, remove the corresponding node from the linked list.
         // Check if index is valid (within list bounds)
-        if ( index < 0 || index >= size ) {
+        if (index < 0 || index >= size) {
             return;
         }
 
@@ -90,7 +90,7 @@ public class SinglyLinkedList {
         size--;
 
         // The simple case is if we remove the head (index == 0)
-        if (index == 0 ) {
+        if (index == 0) {
             // Set the new head to its successor
             head = head.next;
             return;
@@ -99,7 +99,7 @@ public class SinglyLinkedList {
         // Otherwise, follow the next-pointer as many times as necessary to get to the node at requested index,
         // but stop one entry before that!
         Node current = head;
-        for ( int count=0; count < index - 1; count++ ) {
+        for (int count=0; count < index - 1; count++) {
             current = current.next;
         }
 

@@ -178,3 +178,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+!/src/nl/hva/miw/ads/linkedlists/SinglyLinkedList.java
+!/src/nl/hva/miw/ads/linkedlists/SinglyLinkedList.java
+!/.gitignore
