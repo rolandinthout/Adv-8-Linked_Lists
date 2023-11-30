@@ -181,3 +181,8 @@ Temporary Items
 !/src/nl/hva/miw/ads/linkedlists/SinglyLinkedList.java
 !/src/nl/hva/miw/ads/linkedlists/SinglyLinkedList.java
 !/.gitignore
+.idea/**/aws.xml
+.idea/sonarlint/
+replay_pid*
+.project
+.classpath
