@@ -10,7 +10,7 @@ public class SinglyLinkedList {
     private class Node {
         int value;
 
-        Node next=null;      // Link to next node
+        Node next = null;      // Link to next node
 
         public Node(int value) {
             this.value = value;
@@ -33,8 +33,12 @@ public class SinglyLinkedList {
      * @param index
      * @return
      */
-    public int get( int index ) {
-        return -1;
+    public int get(int index) {
+        Node current = head;
+        for (int count=0; count < index; count++ ) {
+            current = current.next;
+        }
+        return current.value;
     }
 
     /**
@@ -45,11 +49,30 @@ public class SinglyLinkedList {
      */
     public void add( int index, int value ) {
         // Implement, create a new Node for this entry.
+        Node newNode = new Node( value );
 
-        Node n = new Node( value );
+        // Don't forget to increment the size of the list
+        size++;
 
-        // Implement the rest
+        // The simple case is if we add a new head (index == 0)
+        if (index == 0 ) {
+            newNode.next = head;
+            head = newNode;
+            return;
+        }
+
+        // Otherwise, follow the next-pointer as many times as necessary to get to the node at requested index,
+        // but stop one entry before that!
+        Node current = head;
+        for ( int count=0; count < index - 1; count++ ) {
+            current = current.next;
+        }
+
+        // Now insert the new node after the current
+        newNode.next = current.next;
+        current.next = newNode;
     }
+
 
     /**
      * Remove an elmeent from the list at position index, if it exists.
@@ -58,23 +81,46 @@ public class SinglyLinkedList {
      */
     public void remove( int index ) {
         // Implement, remove the corresponding node from the linked list.
-    }
+        // Check if index is valid (within list bounds)
+        if ( index < 0 || index >= size ) {
+            return;
+        }
 
+        // Decrease the size
+        size--;
 
-    @Override
-    public String toString() {
-        StringBuffer sb = new StringBuffer();
+        // The simple case is if we remove the head (index == 0)
+        if (index == 0 ) {
+            // Set the new head to its successor
+            head = head.next;
+            return;
+        }
 
-        sb.append("SinglyLinkedList{size=").append(size).append("}");
-
-        Node current = this.head;
-        while ( current != null ) {
-            sb.append(" ");
-            sb.append( current.value );
+        // Otherwise, follow the next-pointer as many times as necessary to get to the node at requested index,
+        // but stop one entry before that!
+        Node current = head;
+        for ( int count=0; count < index - 1; count++ ) {
             current = current.next;
         }
 
-        return sb.toString();
+        // Now remove the node after the current node, by simply bypassing it.
+        current.next = current.next.next;
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer stringBuffer = new StringBuffer();
+
+        stringBuffer.append("SinglyLinkedList{size=").append(size).append("}");
+
+        Node current = this.head;
+        while (current != null) {
+            stringBuffer.append(" ");
+            stringBuffer.append(current.value);
+            current = current.next;
+        }
+
+        return stringBuffer.toString();
     }
 
 

@@ -8,17 +8,17 @@ public class SinglyLinkedListTest {
 
     @Test
     public void add() {
-        SinglyLinkedList l = new SinglyLinkedList();
-        System.out.println(l);
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        System.out.println(singlyLinkedList);
 
-        l.add(0, 400);
-        l.add(0, 100);
-        l.add(1, 200);
-        l.add(2, 300);
-        l.add(4, 500);
+        singlyLinkedList.add(0, 400);
+        singlyLinkedList.add(0, 100);
+        singlyLinkedList.add(1, 200);
+        singlyLinkedList.add(2, 300);
+        singlyLinkedList.add(4, 500);
 
         String expected = "SinglyLinkedList{size=5} 100 200 300 400 500";
-        String actual = l.toString();
+        String actual = singlyLinkedList.toString();
         assertEquals(expected, actual);
     }
 }
